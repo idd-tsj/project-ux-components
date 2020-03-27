@@ -1,0 +1,82 @@
+
+h1 {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 6em;
+text-align: center;
+color:red;
+font-weight: bolder;
+padding: 1em;
+}
+
+img {
+    width: 100%;
+}
+
+h2 {
+    font-size: 4em;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: light;
+    padding: 2em;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    padding:1em;
+    font-size: 1.5em;
+    font-family: "Courier New", Courier, monospace;
+}
+
+ul {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    margin:1em;
+    font-family: "Courier New", Courier, monospace;
+}
+
+li {
+    background-color: whitesmoke;
+    padding: 1em;
+}
+
+.button {
+    background: red;
+    padding: 1em;
+    text-align: center;
+    font-size:1.5em;
+}
+
+.button-content {
+    color: black;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.box{
+    padding:1em 0em 0em 0em;
+    margin: 1em 0em 0em 0em;
+}
+
+.slot-top{
+    height:2em;
+    background-color:red;
+    border-style: solid;
+    border-color:grey;
+    border-width:0.25em;
+    text-align: center;
+    font-size:8em;
+    color:gold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    padding:0.25em
+}
+
+.slot-center {
+    border-style: solid;
+    border-color: lightgrey;
+    border-width:1em;
+    background-color: black;
+    height:13em;
+}

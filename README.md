@@ -42,7 +42,7 @@ Interface Development II Assignment 1
         -when user has scrolled to the end of the document all 'winning' icons have locked in place, and the winning sequence goes off, loading the new content/loading the article again. 
         -lights flashing, congratulations, animation, confetti etc. 
         -spinwheel icon loading icon with delay before loading the same document again. 
-    d)  One component or tool of your choosing: interactive data
+    d)  One component or tool of your choosing: interactive data?
         ????
     
 
