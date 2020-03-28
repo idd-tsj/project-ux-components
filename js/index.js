@@ -138,7 +138,7 @@ const changer = [
     }
 ]
 
-/************* FUNCTIONS *************/
+/************* render dynamic content *************/
 
 function gethowAndWhyHtmlString(howAndWhy) {
     return `<section class="howAndWhy" data-howAndWhy="${howAndWhy.id}">
@@ -182,5 +182,59 @@ function renderTools(toolsToRender) {
 
 renderTools(tools);
 
+/************** Slot Machine Progress Bar ******************/
 
+function moveSlot(slotId, current, secTop, secBottom) {
+    let iconsElement = document.getElementById(slotId);
+    let percentDone = ((current-secTop)/(secBottom-secTop));
+    while (percentDone < 0) {
+        percentDone += 1;
+    }
+    if (percentDone > 1) {
+        percentDone = 1;
+    }
+    let iconsHeight = iconsElement.offsetHeight;
+    let shift = Math.floor(-(((iconsHeight*7)/8)*percentDone));
+    iconsElement.style.marginTop = `${shift}px`;
+    console.log([iconsElement,percentDone,iconsHeight,shift]);
+}
+window.addEventListener(`scroll`, (e) => {
+    let navHeight = document.getElementById('nav').offsetHeight;
+    let current = window.scrollY;
+    let sec1Y = document.getElementById('intro').offsetTop - navHeight;
+    let sec2Y = document.getElementById('psychology').offsetTop - navHeight;
+    let sec3Y = document.getElementById('ui-tools').offsetTop - navHeight;
+    let sec4Y = document.getElementById('care').offsetTop - navHeight;
+    let sec5Y = document.getElementById('resources').offsetTop - navHeight;
+    // let topOfFooter = document.getElementById('footer').offsetTop - navHeight;
+    // let footerHeight = document.getElementById('footer').offsetHeight;
+    // let bottomOfFooter = document.getElementById('footer').clientHeight;
+    let contentHeight = document.getElementById('content').offsetHeight;
+    let windowBottom = document.documentElement.clientHeight;
+    let visibleContentHeight = windowBottom-navHeight;
+    let end = contentHeight-visibleContentHeight;
+
+    console.log([current,sec1Y,sec2Y,sec3Y,sec4Y,sec5Y,contentHeight,windowBottom,visibleContentHeight,end]);
+    moveSlot(`slot-1`, current, sec1Y, sec2Y);
+    moveSlot(`slot-2`, current, sec2Y, sec3Y);
+    moveSlot(`slot-3`, current, sec3Y, sec4Y);
+    moveSlot(`slot-4`, current, sec4Y, sec5Y);
+    moveSlot(`slot-5`, current, sec5Y, end);  
+});
+
+
+
+/***************** Don't let fixed element cover headings **************/
+let links = document.getElementById(`tabs`).childNodes;
+links.forEach(anchor => {
+    anchor.addEventListener(`click`, event=> {
+        event.preventDefault();
+        let $sec = document.querySelector(anchor.getAttribute(`href`));
+        let hFromTop = $sec.offsetTop;
+        let navHeight = document.getElementById('nav').offsetHeight;
+        let roomForBar = hFromTop - navHeight;
+        window.scrollTo({left:0, top: roomForBar, behavior:`smooth`});
+        //console.log([hFromTop,navHeight, roomForBar]);
+    });
+})
 
