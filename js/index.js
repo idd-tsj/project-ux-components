@@ -192,3 +192,4 @@ function renderTools(toolsToRender) {
 }
 
 renderTools(tools);
+
