@@ -120,22 +120,7 @@ const tools = [
 ]
 
 const changer = [
-    {
-        id:01,
-        word: `Sticky`,
-    },{
-        id:02,
-        word: `Habit Forming`,
-    },{
-        id:03, 
-        word: `Time Suck`,
-    },{
-        id:04,
-        word: `Gamified`,
-    },{
-        id:05,
-        word: `Retentive`
-    }
+    `Addictive`,`Sticky`, `Habit Forming`,`Time Suck`,`Gamified`,`Retentive`, 
 ]
 
 /************* render dynamic content *************/
@@ -220,6 +205,10 @@ window.addEventListener(`scroll`, (e) => {
     moveSlot(`slot-3`, current, sec3Y, sec4Y);
     moveSlot(`slot-4`, current, sec4Y, sec5Y);
     moveSlot(`slot-5`, current, sec5Y, end);  
+/**** infinity Scroll *******/
+    if (current >= end) {
+        window.scrollTo({left:0, top: navHeight, behavior:`smooth`});
+    }
 });
 
 
@@ -238,3 +227,12 @@ links.forEach(anchor => {
     });
 })
 
+/*** Changing Title ***/
+let titleWordIndex = 0;
+setInterval(()=>{
+    titleWord += 1;
+    if (titleWord > (changer.length-1)) {
+        titleWord = 0;
+    }
+    document.getElementById('changer').innerText = changer[titleWordIndex];
+},2000);
