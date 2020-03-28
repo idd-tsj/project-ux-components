@@ -151,7 +151,7 @@ function gethowAndWhyHtmlString(howAndWhy) {
                     </div>
                 </div>
             </section>`;
-    }
+}
 
 function getToolsHtmlSting(tools) {
     return `<section class="tools" data-tools="${tools.id}">
@@ -165,17 +165,6 @@ function getToolsHtmlSting(tools) {
                 </div>
             </section>`;
 }
-
-/* Change Title word every 2 seconds
-function getChangerHtmlString(changer) {
-    return `<h1>${changer.word} U.I. Design</h1>`
-    
-    setInterval (
-        () => 
-        2000
-    )
-};
-*/
 
 function renderhowAndWhy(howAndWhytoRender) {
     const arrOfHtml =  howAndWhytoRender.map(gethowAndWhyHtmlString);
@@ -192,4 +181,6 @@ function renderTools(toolsToRender) {
 }
 
 renderTools(tools);
+
+
 
