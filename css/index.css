@@ -123,7 +123,22 @@ li {
     padding: 1em;
 }
 
+.more {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2em;
+    margin-bottom:3em;
+}
 
+.more a {
+    background-color: red;
+    padding:2em;
+    text-align:center;
+    font-weight:bold;
+    color:black;
+    font-family: 'Courier New', Courier, monospace;
+}
 /* footer */
 .footer1 {
     height: 10em;
