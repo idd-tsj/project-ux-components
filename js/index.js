@@ -190,11 +190,11 @@ function moveSlot(slotId, current, secTop, secBottom) {
     while (percentDone < 0) {
         percentDone += 1;
     }
-    if (percentDone > 1) {
-        percentDone = 1;
+    if (percentDone >= 1) {
+        percentDone = 0;
     }
     let iconsHeight = iconsElement.offsetHeight;
-    let shift = Math.floor(-(((iconsHeight*7)/8)*percentDone));
+    let shift = Math.floor(-(((iconsHeight*7)/9)*percentDone));
     iconsElement.style.marginTop = `${shift}px`;
     console.log([iconsElement,percentDone,iconsHeight,shift]);
 }
