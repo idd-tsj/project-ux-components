@@ -181,7 +181,7 @@ function moveSlot(slotId, current, secTop, secBottom) {
     let iconsHeight = iconsElement.offsetHeight;
     let shift = Math.floor(-(((iconsHeight*7)/9)*percentDone));
     iconsElement.style.marginTop = `${shift}px`;
-    console.log([iconsElement,percentDone,iconsHeight,shift]);
+    // console.log([iconsElement,percentDone,iconsHeight,shift]);
 }
 window.addEventListener(`scroll`, (e) => {
     let navHeight = document.getElementById('nav').offsetHeight;
@@ -199,7 +199,7 @@ window.addEventListener(`scroll`, (e) => {
     let visibleContentHeight = windowBottom-navHeight;
     let end = contentHeight-visibleContentHeight;
 
-    console.log([current,sec1Y,sec2Y,sec3Y,sec4Y,sec5Y,contentHeight,windowBottom,visibleContentHeight,end]);
+    // console.log([current,sec1Y,sec2Y,sec3Y,sec4Y,sec5Y,contentHeight,windowBottom,visibleContentHeight,end]);
     moveSlot(`slot-1`, current, sec1Y, sec2Y);
     moveSlot(`slot-2`, current, sec2Y, sec3Y);
     moveSlot(`slot-3`, current, sec3Y, sec4Y);
@@ -230,9 +230,9 @@ links.forEach(anchor => {
 /*** Changing Title ***/
 let titleWordIndex = 0;
 setInterval(()=>{
-    titleWord += 1;
-    if (titleWord > (changer.length-1)) {
-        titleWord = 0;
+    titleWordIndex += 1;
+    if (titleWordIndex >= changer.length) {
+        titleWordIndex = 0;
     }
     document.getElementById('changer').innerText = changer[titleWordIndex];
 },2000);
